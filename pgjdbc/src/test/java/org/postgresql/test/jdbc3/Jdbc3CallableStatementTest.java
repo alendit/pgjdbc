@@ -428,7 +428,6 @@ public class Jdbc3CallableStatementTest extends BaseTest4 {
 
   @Test
   public void testGetBytes01() throws Throwable {
-    assumeByteaSupported();
     byte[] testdata = "TestData".getBytes();
     try {
       Statement stmt = con.createStatement();
@@ -601,7 +600,6 @@ public class Jdbc3CallableStatementTest extends BaseTest4 {
 
   @Test
   public void testGetBytes02() throws Throwable {
-    assumeByteaSupported();
     byte[] testdata = "TestData".getBytes();
     try {
       Statement stmt = con.createStatement();

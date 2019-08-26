@@ -13,11 +13,7 @@ import org.postgresql.core.Utils;
 import org.postgresql.geometric.PGbox;
 import org.postgresql.geometric.PGpoint;
 import org.postgresql.jdbc.UUIDArrayAssistant;
-import org.postgresql.util.ByteConverter;
-import org.postgresql.util.GT;
-import org.postgresql.util.PSQLException;
-import org.postgresql.util.PSQLState;
-import org.postgresql.util.StreamWrapper;
+import org.postgresql.util.*;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -213,6 +209,10 @@ class SimpleParameterList implements V3ParameterList {
           PGbox pgBox = new PGbox();
           pgBox.setByteValue((byte[]) paramValues[index], 0);
           return "'" + pgBox.toString() + "'::box";
+
+        case Oid.BYTEA:
+          return "'" + PGbytea.toPGString(((StreamWrapper)paramValues[index]).getBytes()) + "'";
+
       }
       return "?";
     } else {

@@ -103,6 +103,7 @@ public class DriverTest {
     Properties p = (Properties) parseMethod.invoke(drv, url, null);
     assertEquals(url, dbName, p.getProperty(PGProperty.PG_DBNAME.getName()));
     assertEquals(url, hosts, p.getProperty(PGProperty.PG_HOST.getName()));
+    System.out.println(ports);
     assertEquals(url, ports, p.getProperty(PGProperty.PG_PORT.getName()));
   }
 

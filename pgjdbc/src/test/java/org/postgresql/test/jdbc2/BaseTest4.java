@@ -90,11 +90,6 @@ public class BaseTest4 {
     TestUtil.closeDB(con);
   }
 
-  public void assumeByteaSupported() {
-    Assume.assumeTrue("bytea is not supported in simple protocol execution mode",
-        preferQueryMode.compareTo(PreferQueryMode.EXTENDED) >= 0);
-  }
-
   public void assumeCallableStatementsSupported() {
     Assume.assumeTrue("callable statements are not fully supported in simple protocol execution mode",
         preferQueryMode.compareTo(PreferQueryMode.EXTENDED) >= 0);
